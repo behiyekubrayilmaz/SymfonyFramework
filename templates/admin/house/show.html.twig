@@ -1,0 +1,100 @@
+{% extends 'adminbase.html.twig' %}
+
+{% block title %}House{% endblock %}
+
+{% block body %}
+    <div class="span9">
+        <div class="content">
+
+            <div class="module">
+                <div class="module-head">
+                    <h3>
+                        HIRE SHOW
+                    </h3>
+                    <br>
+                </div>
+                <div class="module-body">
+
+                    <table class="table">
+
+                        <tbody>
+                        <tr>
+                            <th>Id</th>
+                            <td>{{ house.id }}</td>
+                        </tr>
+                        <tr>
+                            <th>Title</th>
+                            <td>{{ house.title }}</td>
+                        </tr>
+                        <tr>
+                            <th>Keywords</th>
+                            <td>{{ house.keywords }}</td>
+                        </tr>
+                        <tr>
+                            <th>Description</th>
+                            <td>{{ house.description }}</td>
+                        </tr>
+                        <tr>
+                            <th>Image</th>
+                            <td><img src="{{ asset('uploads/images/' ~ house.image ) }}" width="100"></td>
+                        </tr>
+                        <tr>
+                            <th>Price</th>
+                            <td>{{ house.price }}</td>
+                        </tr>
+                        <tr>
+                            <th>Area</th>
+                            <td>{{ house.area }}</td>
+                        </tr>
+                        <tr>
+                            <th>Numberroom</th>
+                            <td>{{ house.numberroom }}</td>
+                        </tr>
+                        <tr>
+                            <th>Phone</th>
+                            <td>{{ house.phone }}</td>
+                        </tr>
+                        <tr>
+                            <th>Address</th>
+                            <td>{{ house.address }}</td>
+                        </tr>
+                        <tr>
+                            <th>City</th>
+                            <td>{{ house.city }}</td>
+                        </tr>
+                        <tr>
+                            <th>Location</th>
+                            <td>{{ house.location }}</td>
+                        </tr>
+                        <tr>
+                            <th>Email</th>
+                            <td>{{ house.email }}</td>
+                        </tr>
+                        <tr>
+                            <th>Status</th>
+                            <td>{{ house.status }}</td>
+                        </tr>
+                        <tr>
+                            <th>Created_at</th>
+                            <td>{{ house.createdAt ? house.createdAt|date('Y-m-d') : '' }}</td>
+                        </tr>
+                        <tr>
+                            <th>Updated_at</th>
+                            <td>{{ house.updatedAt ? house.updatedAt|date('Y-m-d H:i:s') : '' }}</td>
+                        </tr>
+
+
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div><!--/.content-->
+    </div><!--/.span9-->
+    </div>
+    </div>
+    <!--/.container-->
+    </div>
+    <!--/.wrapper-->
+{% endblock %}
+
+

@@ -1,0 +1,60 @@
+{% extends 'homebase.html.twig' %}
+
+{% block title %}{{ app.user.name }} Profile{% endblock %}
+
+
+{% block body %}
+    <section id="subintro">
+        <div class="jumbotron subhead" id="overview">
+            <div class="container">
+                <div class="row">
+                    <div class="span8">
+                        <h3><i class="m-icon-big-swapright m-icon-white"></i> Overview</h3>
+                        <p>Overview of the template, its contents, and how to get started with scaffold template.</p>
+                    </div>
+                    <div class="span4">
+                        <div class="input-append">
+                            <form class="form-search">
+                                <input type="text" class="input-medium search-query">
+                                <button type="submit" class="btn btn-inverse">Search</button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    {% include ('user/usermenu.html.twig') %}
+
+    <h1> User Announcements</h1>
+    <div class="row">
+        <div class="span6">
+            <div class="well">
+                <h2>Primary</h2>
+                <p><span class="label">BUDGET</span></p>
+                <ul class="check-white">
+                    <li>20 users</li>
+                    <li>Unlimited access with no limits</li>
+                    <li>5TB of space</li>
+                    <li>E-mail support</li>
+                </ul>
+
+                <h3>$20.99 / month</h3>
+                <p><a class="btn btn-large" href="#"><i class="icon-ok icon"></i> Select plan</a></p>
+            </div>
+        </div>
+    </div>
+
+
+
+
+
+
+    </div>
+    </div>
+    </div>
+
+
+
+{% endblock %}

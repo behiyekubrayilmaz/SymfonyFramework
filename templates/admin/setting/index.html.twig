@@ -1,0 +1,73 @@
+{% extends 'adminbase.html.twig' %}
+
+{% block title %}Setting index{% endblock %}
+
+{% block body %}
+
+    <div class="span9">
+        <div class="content">
+
+            <div class="module">
+                <div class="module-head">
+                    <h2>Setting index</h2>
+
+                    <br>
+
+                </div>
+                <div class="module-body">
+                    <table class="table ">
+                        <thead>
+                        <tr>
+                            <th>Id</th>
+                            <th>Title</th>
+
+                            <th>Name</th>
+
+                            <th>Email</th>
+
+                            <th>Status</th>
+                            <th colspan="2">Actions</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        {% for setting in settings %}
+                            <tr>
+                                <td>{{ setting.id }}</td>
+                                <td>{{ setting.title }}</td>
+                                <td>{{ setting.name }}</td>
+
+                                <td>{{ setting.email }}</td>
+
+                                <td>{{ setting.status }}</td>
+                                <td>
+                                    <a href="{{ path('admin_setting_show', {'id': setting.id}) }}" class="btn btn-mini btn-warning"><i class="icon-zoom-in"></i>
+                                        <b>Show</b>
+                                    </a>
+                                </td>
+                                <td>
+                                    <a href="{{ path('admin_setting_edit', {'id': setting.id}) }}" class="btn btn-mini btn-success "><i class="icon-sort-up"></i>
+                                        <b>Edit</b>
+                                    </a>
+                                </td>
+                            </tr>
+                        {% else %}
+                            <tr>
+                                <td colspan="20">no records found</td>
+                                <h6>
+                                    <small><a href="{{ path('admin_setting_new') }}" class="btn btn-info"><i class="icon-arrow-down"></i>CREATE </a> </small>
+                                </h6>
+                            </tr>
+                        {% endfor %}
+                        </tbody>
+                    </table>
+
+                </div>
+            </div>
+        </div><!--/.content-->
+    </div><!--/.span9-->
+    </div>
+    </div>
+    <!--/.container-->
+    </div>
+    <!--/.wrapper-->
+{% endblock %}

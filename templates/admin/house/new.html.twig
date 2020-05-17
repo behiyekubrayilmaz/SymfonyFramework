@@ -1,0 +1,33 @@
+{% extends 'adminbase.html.twig' %}
+
+{% block title %}New House{% endblock %}
+
+{% block body %}
+	<div class="span9">
+		<div class="content">
+
+			<div class="module message">
+				<div class="module-head">
+					<h3>Hire Index</h3>
+				</div>
+
+				<div class="module-body">
+
+                    {{ include('admin/house/_form.html.twig') }}<br>
+				</div>
+				<div class="module-foot">
+				</div>
+			</div>
+
+		</div>
+		<!--/.content-->
+	</div>
+	<!--/.span9-->
+	</div>
+	</div>
+	<!--/.container-->
+	</div>
+	<!--/.wrapper-->
+
+{% endblock %}
+

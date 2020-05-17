@@ -1,0 +1,29 @@
+{% extends 'adminbase.html.twig' %}
+
+{% block title %}Edit Setting{% endblock %}
+
+{% block body %}
+    <div class="span9">
+        <div class="content">
+
+            <div class="module">
+                <div class="module-head">
+                    <h2>
+                        Edit Setting
+                    </h2>
+
+                </div>
+                <div class="module-body">
+
+                    {{ include('admin/setting/_form.html.twig', {'button_label': 'Update'}) }}
+                    <br>{{ include('admin/setting/_delete_form.html.twig') }}
+                </div>
+            </div>
+        </div><!--/.content-->
+    </div><!--/.span9-->
+    </div>
+    </div>
+    <!--/.container-->
+    </div>
+    <!--/.wrapper-->
+{% endblock %}

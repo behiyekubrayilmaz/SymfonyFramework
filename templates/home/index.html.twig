@@ -1,0 +1,106 @@
+{% extends 'homebase.html.twig' %}
+
+{% block title %} {{ data.title }} {% endblock %}
+{% block description %} {{ data.keywords }} {% endblock %}
+{% block keyword %} {{ data.description }} {% endblock %}
+{% block slider %} {% include('home/slider.html.twig') %} {% endblock %}
+
+{% block body %}
+
+  <div class="container">
+    <div class="row">
+      <div class="span12">
+        <div class="tagline">
+          <div class="row">
+            <div class="span6">
+              <div class="tagline_text">
+                <h2>Scaffold will <span class="text-success">pimp up</span> your website quickly</h2>
+                <div class="tag_list">
+                  <ul>
+                    <li><span><i class="icon-fire"></i> Hottest price on the net</span></li>
+                    <li><span><i class="icon-gift"></i> More than expected</span></li>
+                    <li><span><i class="icon-plane"></i> Flying out of the crowd</span></li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+
+            <div class="span6">
+              <div class="btn-toolbar cta">
+                <a class="btn btn-large btn-danger" href="/contact"><i class="m-icon-big-swapright m-icon-white"></i> Contact</a>
+                <a class="btn btn-large btn-success" href="/announcement"><i class="m-icon-big-swapdown m-icon-white"></i> NEW HOUSE</a>
+              </div>
+            </div>
+
+
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <section id="maincontent">
+    <div class="container">
+
+      <div class="row">
+        <div class="span12">
+          <h3 class="heading-success"><span class="btn btn-large btn-success"><i class="m-icon-big-swapdown m-icon-white"></i></span>&nbsp;&nbsp;New House</h3>
+
+          <div  class="carousel btleft">
+            <div class="carousel-wrapper">
+                {% for rs in newhouse %}
+
+              <ul class="client" style="width: 1810px; display: block; margin-left: 0px;">
+
+                <li style="margin-right: 30px; width: 270px;">
+                  <div class="tooltip-demo thumbnail">
+
+                    <a href="{{ path('house_show',{'id':rs.id} ) }}"  data-original-title="New House"><img src="{{ asset('uploads/images/' ~ rs.image ) }}" alt="" style="height: 250px; width: 270px;" /></a>
+                  </div>
+                </li>
+
+              </ul>
+              {% endfor %}
+            </div>
+            <div class="es-nav"><span class="es-nav-prev" style="opacity: 0.5;">Previous</span><span class="es-nav-next" style="opacity: 1;">Next</span></div></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <section id="bottom">
+    <div class="container">
+      <div class="row">
+        <div class="span12">
+          <h3><a class="btn btn-large btn-success" href="#"><i class="m-icon-big-swapdown m-icon-white"></i></a> For Rent By Owner</h3>
+
+          <div id="latest-work" class="carousel btleft">
+            <div class="carousel-wrapper">
+                {% for rs in house %}
+                  <ul class="portfolio-home da-thumbs" style="width: 2410px; display: block; margin-left: 0px;">
+                    <li style="margin-right: 30px; width: 270px;">
+                      <div class="thumbnail">
+                        <div class="image-wrapp">
+                          <img src="{{ asset('uploads/images/' ~ rs.image ) }}" alt="Portfolio name" title="" style="width: 270px; height: 250px " />
+                          <article class="da-animate da-slideFromRight" style="display: block;">
+                            <span><a class="zoom" data-pretty="prettyPhoto" href="{{ asset('uploads/images/' ~ rs.image ) }}"><img src="assets/img/icons/zoom_icon.png" alt="Portfolio name" title="Portfolio name"></a></span>
+                          </article>
+                        </div>
+                        <div class="caption">
+                          <h4>{{ rs.title }}</h4>
+                        </div>
+
+                      </div>
+                    </li>
+                  </ul>
+                {% endfor %}
+            </div>
+            <div class="es-nav"><span class="es-nav-prev" style="opacity: 0.5;">Previous</span><span class="es-nav-next" style="opacity: 1;">Next</span></div></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+{% endblock %}

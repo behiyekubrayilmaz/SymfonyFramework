@@ -1,0 +1,31 @@
+{% extends 'adminbase.html.twig' %}
+
+{% block title %}user index{% endblock %}
+
+{% block body %}
+
+    <div class="span9">
+        <div class="content">
+
+            <div class="module">
+                <div class="module-head">
+
+                    <h4>
+                        <small><a href="{{ path('admin_user_new') }}" class="btn btn-info"><i class="icon-arrow-down"></i>CREATE USER</a> </small>
+                    </h4>
+                </div>
+                <div class="module-body">
+                    <h1>Create new User</h1>
+
+                    {{ include('admin/user/_form.html.twig') }}
+
+                </div>
+            </div>
+        </div><!--/.content-->
+    </div><!--/.span9-->
+    </div>
+    </div>
+    <!--/.container-->
+    </div>
+    <!--/.wrapper-->
+{% endblock %}

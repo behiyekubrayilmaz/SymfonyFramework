@@ -1,0 +1,106 @@
+{% extends 'homebase.html.twig' %}
+
+{% block title %}House index{% endblock %}
+
+{% block body %}
+    <SCRIPT language="JavaScript" type="text/javascript">
+        function openWin(windowURL, windowName, windowFeatures ) {   window.open( windowURL, windowName, windowFeatures );
+
+        }
+    </SCRIPT>
+    <section id="subintro">
+        <div class="jumbotron subhead" id="overview">
+            <div class="container">
+                <div class="row">
+                    <div class="span8">
+                        <h3><i class="m-icon-big-swapright m-icon-white"></i> User</h3>
+                        <p>Overview of the template, its contents, and how to get started with scaffold template.</p>
+                    </div>
+                    <div class="span4">
+                        <div class="input-append">
+                            <form class="form-search">
+                                <input type="text" class="input-medium search-query">
+                                <button type="submit" class="btn btn-inverse">Search</button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    {% include ('user/usermenu.html.twig') %}
+
+
+    <h1>House index</h1>
+    <div class="row">
+
+        <div class="well">
+            <h6>
+                <small><a href="{{ path('user_house_new') }}" class="btn btn-info"><i class="icon-arrow-down"></i>CREATE HOUSE</a> </small>
+            </h6>
+
+            <table class="table table-hover">
+                <thead>
+                <tr>
+                    <th>Category</th>
+                    <th>Title</th>
+
+                    <th>Image</th>
+                    <th>Price(TL)</th>
+                    <th>Area(m2)</th>
+                    <th>Numberroom</th>
+                    <th>City</th>
+                    <th>Gallery</th>
+                    <th>Status</th>
+                    <th>  Actions</th>
+                </tr>
+                </thead>
+                <tbody>
+                {% for house in houses %}
+                    <tr>
+                        <td>{{ house.category }}</td>
+                        <td>{{ house.title }}</td>
+                        <td><img src="{{ asset('uploads/images/' ~ house.image ) }}" height="50"></td>
+                        <td>{{ house.price }}TL</td>
+                        <td>{{ house.area }}m2</td>
+                        <td>{{ house.numberroom }}+1</td>
+                        <td>{{ house.city }}</td>
+                        <td>
+                            <a href="javascript:openWin('{{ path('user_image_new',{'id': house.id}) }}','','toolbar=no,location=no,directories=0,status=no,top=50,left=100,menuBar=no,scrollBars=yes,resizable=no,width=900,height=600');">
+                                <img src="{{ asset('assets/admin/img') }}/teaser.png" height="50">
+                            </a>
+                        </td>
+
+                        <td>{{ house.status }}</td>
+                        <td>
+                            <a href="{{ path('user_house_show', {'id': house.id}) }}" class="btn btn-warning">
+                                <b>Show</b>
+                            </a>
+                        </td>
+                        <td>
+                            <a href="{{ path('user_house_edit', {'id': house.id}) }}" class="btn btn-success ">
+                                <b>Edit</b>
+                            </a>
+                        </td>
+                        <td>
+                            {{ include('house/_delete_form.html.twig') }}
+                        </td>
+                    </tr>
+                {% else %}
+                    <tr>
+                        <td colspan="17">no records found</td>
+                    </tr>
+
+                {% endfor %}
+                </tbody>
+            </table>
+        </div>
+
+    </div>
+    </div>
+    </div>
+    </div>
+
+
+{% endblock %}

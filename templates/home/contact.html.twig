@@ -1,0 +1,107 @@
+{% extends 'homebase.html.twig' %}
+
+{% block title %}Contract {{data.title}}{% endblock %}
+
+{% block body %}
+
+    <section id="subintro">
+        <div class="jumbotron subhead" id="overview">
+            <div class="container">
+                <div class="row">
+                    <div class="span8">
+                        <h3><br><i class="m-icon-big-swapright m-icon-white"></i>Contact</h3>
+                    </div>
+                    <div class="span4">
+                        <div class="input-append">
+                            <form class="form-search">
+                                <input type="text" class="input-medium search-query">
+                                <button type="submit" class="btn btn-inverse">Search</button>
+                                <ul class="social_small"><br>
+
+                                    <li class="facebook first"><a href="{{data.facebook}}" title="Facebook">Facebook</a></li>
+                                    <li class="twitt"><a href="{{data.twitter}}" title="Twitter">Twitter</a></li>
+                                    <li class="googleplus"><a href="#" title="google plus">Google plus</a></li>
+                                    <li class="flickr"><a href="#" title="flickr">Flickr</a></li>
+                                    <li class="dribbble"><a href="#" title="Dribbble">Dribbble</a></li>
+                                </ul>
+                            </form>
+
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="maincontent">
+        <div class="container">
+            <div class="row">
+                <div class="span6">
+                    <aside>
+                        <div class="widget">
+                            <h4 class="heading-success"><span class="btn btn-large btn-success"><i class="m-icon-big-swapdown m-icon-white"></i></span>&nbsp;&nbsp;Contract Information</h4>
+                            <strong>{{data.title}}</strong><br><br>
+                            <ul>
+                                <li><label><strong>Person in charge : </strong></label>
+                                    <p>{{data.name}}</p>
+                                </li>
+                                <li><label><strong>Phone : </strong></label>
+                                    <p>{{data.phone}}</p>
+                                </li>
+                                <li><label><strong>Email : </strong></label>
+                                    <p>{{data.email}}</p>
+                                </li>
+                                <li><label><strong>Adress : </strong></label>
+                                    <p>{{data.address}}</p>
+                                </li>
+                            </ul>
+                        </div>
+                    </aside>
+                    <div class="well">
+                        <iframe src="https://www.google.com/maps/embed?pb=!1m20!1m8!1m3!1d6003.0191044260355!2d32.655502!3d41.210665000000006!3m2!1i1024!2i768!4f13.1!4m9!3e6!4m3!3m2!1d41.2108345!2d32.6552231!4m3!3m2!1d41.2106646!2d32.6555019!5e0!3m2!1str!2str!4v1576944339936!5m2!1str!2str" width="100%" height="380" frameborder="0" style="border:0;" allowfullscreen=""></iframe>
+                    </div>
+                </div>
+                <div class="span6">
+
+                    <div class="spacer30"></div>
+                    <h4 class="heading-success"><span class="btn btn-large btn-success"><i class="m-icon-big-swapdown m-icon-white"></i></span>&nbsp;&nbsp;Contract Form</h4>
+
+
+                    <div id="sendmessage">Your message has been sent. Thank you!</div>
+                    <div id="errormessage"></div>
+                    {{ include ('messages.html.twig') }}
+
+                    <form name="messages" method="post" role="form" class="contactForm">
+                        <div class="row">
+                            <div class="span6 form-group">
+                                <input type="text" id="messages_name" name="messages[name]" class="input-block-level" placeholder="Your Name" data-rule="minlen:4" data-msg="Please enter at least 4 chars" />
+                                <div class="validation"></div>
+                            </div>
+
+                            <div class="span6 form-group">
+                                <input type="email" class="input-block-level" id="messages_email" name="messages[email]" placeholder="Your Email" data-rule="email" data-msg="Please enter a valid email" />
+                                <div class="validation"></div>
+                            </div>
+                            <div class="span6 form-group">
+                                <input type="text" class="input-block-level" id="messages_subject" name="messages[subject]" placeholder="Subject" data-rule="minlen:4" data-msg="Please enter at least 8 chars of subject" />
+                                <div class="validation"></div>
+                            </div>
+                            <div class="span6 form-group">
+                                <textarea class="input-block-level" id="messages_message" name="messages[message]" rows="5" data-rule="required" data-msg="Please write something for us" placeholder="Message"></textarea>
+                                <div class="validation"></div>
+                                <div style="text-align: center;">
+                                    <input type="hidden" name="token" value="{{ csrf_token('form-message') }}" />
+                                    <button class="btn btn-medium btn-success" type="submit">Send a message</button>
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+
+                </div>
+            </div>
+        </div>
+    </section>
+
+{% endblock %}
+

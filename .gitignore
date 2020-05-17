@@ -1,0 +1,6 @@
+/temp
+/vendor
+/var
+/public
+/config
+.env

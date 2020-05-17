@@ -1,0 +1,73 @@
+{% extends 'homebase.html.twig' %}
+
+{% block title %}{{ app.user.name }} Profile{% endblock %}
+
+
+{% block body %}
+    <section id="subintro">
+        <div class="jumbotron subhead" id="overview">
+            <div class="container">
+                <div class="row">
+                    <div class="span8">
+                        <h3><i class="m-icon-big-swapright m-icon-white"></i> Overview</h3>
+                        <p>Overview of the template, its contents, and how to get started with scaffold template.</p>
+                    </div>
+                    <div class="span4">
+                        <div class="input-append">
+                            <form class="form-search">
+                                <input type="text" class="input-medium search-query">
+                                <button type="submit" class="btn btn-inverse">Search</button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    {% include ('user/usermenu.html.twig') %}
+
+    <section id="general-template" class="doc">
+
+        <h1>{{ app.user.name }}</h1>
+        <div class="row">
+            <div class="span6">
+
+                <table class="table table-bordered">
+                    <tbody>
+                
+                    <tr>
+                        <th>Name</th>
+                        <td>{{ app.user.name }}</td>
+                    </tr>
+                    <tr>
+                        <th>Surname</th>
+                        <td>{{ app.user.surname }}</td>
+                    </tr>
+                    <tr>
+                        <th>Email</th>
+                        <td>{{ app.user.email }}</td>
+                    </tr>
+                    <tr>
+                        <th>Image</th>
+                        <td><img src="{{ asset('uploads/images/' ~ app.user.image ) }}" width="150px"></td>
+                    </tr>
+                    <tr>
+                        <th>Status</th>
+                        <td>{{ app.user.status }}</td>
+                    </tr>
+                    
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+
+    </section>
+    </div>
+    </div>
+    </div>
+
+
+
+{% endblock %}

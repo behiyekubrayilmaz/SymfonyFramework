@@ -1,0 +1,81 @@
+{% extends 'homebase.html.twig' %}
+
+{% block title %}Scaffold{% endblock %}
+
+
+{% block body %}
+    <section id="subintro">
+        <div class="jumbotron subhead" id="overview">
+            <div class="container">
+                <div class="row">
+                    <div class="span8">
+                        <h3><i class="m-icon-big-swapright m-icon-white"></i> Overview</h3>
+                        <p>Overview of the template, its contents, and how to get started with scaffold template.</p>
+                    </div>
+                    <div class="span4">
+                        <div class="input-append">
+                            <form class="form-search">
+                                <input type="text" class="input-medium search-query">
+                                <button type="submit" class="btn btn-inverse">Search</button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <section id="maincontent">
+        <div class="container">
+            
+
+            {% for house in houses %}
+                <div class="row">
+                    <div class="span6">
+                        <div class="thumbnail">
+                            <div class="image-wrapp">
+                                <a href="{{ path('house_show', {'id': house.id}) }}"><img src="{{ asset('uploads/images/' ~ house.image ) }}" alt="{{ house.title }}" title="" style="max-height: 60%;"></a>
+
+                            </div>
+                        </div>
+                    </div>
+
+
+                    <div class="span6">
+                        <table class="table table-hover">
+                            <thead>
+                            <tr>
+                            <th>Category</th>
+                                <th>Title</th>
+                                <th>Price($)</th>
+                                <th>Area(m2)</th>
+                                <th>Numberroom</th>
+                                <th>Email</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+
+                            <tr>
+                            <td>{{ house.category }}</td>
+                                <td>{{ house.title }}</td>
+                                <td>{{ house.price }}TL</td>
+                                <td>{{ house.area }} m2</td>
+                                <td>{{ house.numberroom }}+1</td>
+                                <td>{{ house.email }}</td>
+                                
+
+                            </tr>
+
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+    </section>
+
+
+
+
+{% endblock %}

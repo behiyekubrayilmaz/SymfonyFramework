@@ -1,0 +1,84 @@
+{% extends 'adminbase.html.twig' %}
+
+{% block title %}House index{% endblock %}
+
+{% block body %}
+    <SCRIPT language="JavaScript" type="text/javascript">
+        function openWin(windowURL, windowName, windowFeatures ) {   window.open( windowURL, windowName, windowFeatures );
+        }
+    </SCRIPT>
+
+    <div class="span9">
+        <div class="content">
+            <div class="module">
+                <div class="module-head">
+                    <h2>
+                        HIRES LIST
+                    </h2>
+                </div>
+                <div class="module-body">
+                    <table class="table table-hover">
+                        <thead>
+                        <tr>
+                            <th>Id</th>
+                            <th>Category</th>
+                            <th>Title</th>
+                            <th>Image</th>
+                            <th>Price(TL)</th>
+                            <th>Numberroom</th>
+                            <th>USER</th>
+                            <th>Gallery</th>
+                            <th>Status</th>
+                            <th>  Actions</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        {% for house in houses %}
+                            <tr>
+                                <td>{{ house.id }}</td>
+                                <td>{{ house.catname }}</td>
+                                <td>{{ house.title }}</td>
+                                <td><img src="{{ asset('uploads/images/' ~ house.image ) }}" width="1500px"></td>
+                                <td>{{ house.price }}TL</td>
+                                <td>{{ house.numberroom }}+1</td>
+                                <td><a href="{{ path('admin_user_show', {'id': house.userid}) }}">   {{ house.name }} {{ house.surname }} </a></td>
+
+                                <td>
+                                    <a href="javascript:openWin('{{ path('admin_image_new',{'id': house.id}) }}','','toolbar=no,location=no,directories=0,status=no,top=50,left=100,menuBar=no,scrollBars=yes,resizable=no,width=900,height=600');">
+                                        <img src="{{ asset('assets/admin/img') }}/teaser.png" width="1500px">
+                                    </a>
+                                </td>
+                                
+                                <td>{{ house.status }}</td>
+                                <td>
+                                    <a href="{{ path('admin_house_show', {'id': house.id}) }}" class="btn btn-mini btn-warning"><i class="icon-zoom-in"></i>
+                                        <b>Show</b>
+                                    </a>
+                                </td>
+                                <td>
+                                    <a href="{{ path('admin_house_edit', {'id': house.id}) }}" class="btn btn-mini btn-success "><i class="icon-sort-up"></i>
+                                        <b>Edit</b>
+                                    </a>
+                                </td>
+                                <td>
+                                    {{ include('admin/house/_delete_form.html.twig') }}
+                                </td>
+                            </tr>
+                        {% else %}
+                            <tr>
+                                <td colspan="17">no records found</td>
+                            </tr>
+
+                        {% endfor %}
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div><!--/.content-->
+    </div><!--/.span9-->
+    </div>
+    </div>
+    <!--/.container-->
+    </div>
+    <!--/.wrapper-->
+{% endblock %}

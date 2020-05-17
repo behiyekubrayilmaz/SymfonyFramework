@@ -1,0 +1,48 @@
+{% extends 'homebase.html.twig' %}
+
+{% block title %}House index{% endblock %}
+
+{% block body %}
+    <section id="subintro">
+        <div class="jumbotron subhead" id="overview">
+            <div class="container">
+                <div class="row">
+                    <div class="span8">
+                        <h3><i class="m-icon-big-swapright m-icon-white"></i> Overview</h3>
+                        <p>Overview of the template, its contents, and how to get started with scaffold template.</p>
+                    </div>
+                    <div class="span4">
+                        <div class="input-append">
+                            <form class="form-search">
+                                <input type="text" class="input-medium search-query">
+                                <button type="submit" class="btn btn-inverse">Search</button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    {% include ('user/usermenu.html.twig') %}
+
+    <h1>House index</h1>
+    <div class="row">
+
+        <div class="well">
+            <h1>Edit House</h1>
+
+            {{ include('house/_form.html.twig', {'button_label': 'Update'}) }}
+
+
+
+
+        </div>
+
+    </div>
+    </div>
+    </div>
+    </div>
+
+
+{% endblock %}
+

@@ -1,0 +1,120 @@
+{% extends 'homebase.html.twig' %}
+
+{% block title %}House index{% endblock %}
+
+{% block body %}
+    <section id="subintro">
+        <div class="jumbotron subhead" id="overview">
+            <div class="container">
+                <div class="row">
+                    <div class="span8">
+                        <h3><i class="m-icon-big-swapright m-icon-white"></i> Overview</h3>
+                        <p>Overview of the template, its contents, and how to get started with scaffold template.</p>
+                    </div>
+                    <div class="span4">
+                        <div class="input-append">
+                            <form class="form-search">
+                                <input type="text" class="input-medium search-query">
+                                <button type="submit" class="btn btn-inverse">Search</button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    {% include ('user/usermenu.html.twig') %}
+
+    <h1>House index</h1>
+    <div class="row">
+
+        <div class="well">
+
+
+            <table class="table table-bordered">
+                <tbody>
+                
+                <tr>
+                    <th>Title</th>
+                    <td>{{ house.title }}</td>
+                </tr>
+                <tr>
+                    <th>Keywords</th>
+                    <td>{{ house.keywords }}</td>
+                </tr>
+                <tr>
+                    <th>Description</th>
+                    <td>{{ house.description }}</td>
+                </tr>
+                <tr>
+                    <th>Image</th>
+                    <td><img src="{{ asset('uploads/images/' ~ house.image ) }}" width="100"></td>
+                </tr>
+                <tr>
+                    <th>Price</th>
+                    <td>{{ house.price }}</td>
+                </tr>
+                <tr>
+                    <th>Area</th>
+                    <td>{{ house.area }}</td>
+                </tr>
+                <tr>
+                    <th>Numberroom</th>
+                    <td>{{ house.numberroom }}</td>
+                </tr>
+                <tr>
+                    <th>Phone</th>
+                    <td>{{ house.phone }}</td>
+                </tr>
+                <tr>
+                    <th>Address</th>
+                    <td>{{ house.address }}</td>
+                </tr>
+                <tr>
+                    <th>City</th>
+                    <td>{{ house.city }}</td>
+                </tr>
+                <tr>
+                    <th>Location</th>
+                    <td>{{ house.location }}</td>
+                </tr>
+                <tr>
+                    <th>Email</th>
+                    <td>{{ house.email }}</td>
+                </tr>
+                <tr>
+                    <th>Created At</th>
+                    <td>{{ house.createdAt ? house.updatedAt|date('Y-m-d H:i:s') : '' }}</td>
+                </tr>
+                <tr>
+                    <th>Updated At</th>
+                    <td>{{ house.updatedAt ? house.updatedAt|date('Y-m-d H:i:s') : '' }}</td>
+                </tr>
+
+                <tr>
+                    <th>Status</th>
+                    <td>{{ house.status }}</td>
+                </tr>
+            
+                <tr>
+                    <th>Detail</th>
+                    <td>{{ house.detail |raw }}</td>
+                </tr>
+                
+
+                </tbody>
+            </table>
+
+            <a href="{{ path('user_house_index') }}" class="btn btn-success">Back to list</a>
+
+
+        </div>
+
+    </div>
+    </div>
+    </div>
+    </div>
+
+
+{% endblock %}
+

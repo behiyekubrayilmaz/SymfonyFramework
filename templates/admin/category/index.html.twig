@@ -1,0 +1,77 @@
+{% extends 'adminbase.html.twig' %}
+
+{% block title %}House index{% endblock %}
+
+{% block body %}
+
+
+    <div class="span9">
+        <div class="content">
+            <div class="module">
+                <div class="module-head">
+                    <h3>
+                        CATEGORY LIST
+                    </h3>
+                    <br>
+                    <h6>
+                        <small><a href="{{ path('category_new') }}" class="btn btn-info"><i class="icon-arrow-down"></i>CREATE CATEGORY</a> </small>
+                    </h6>
+                </div>
+                <div class="module-body">
+
+                    <table class="table table-bordered">
+                        <tbody>
+                        <th>Id</th>
+                        <th>Parentid</th>
+                        <th>Title</th>
+                        <th>Keywords</th>
+                        <th>Description</th>
+                        <th>Status</th>
+                        <th>Actions </th>
+
+                        {% for category in categories %}
+                            <tr>
+                                <td>{{ category.id }}</td>
+                                <td>{{ category.parentid }}</td>
+                                <td>{{ category.title }}</td>
+                                <td>{{ category.keywords }}</td>
+                                <td>{{ category.description }}</td>
+                                <td>{{ category.status }}</td>
+                                <td>
+                                    <a href="{{ path('category_show', {'id': category.id}) }}" class="btn btn-mini btn-warning"><i class="icon-zoom-in"></i>
+                                        <b>Show</b>
+                                    </a>
+                                </td>
+                                <td>
+                                    <a href="{{ path('category_edit', {'id': category.id}) }}" class="btn btn-mini btn-success "><i class="icon-sort-up"></i>
+                                        <b>Edit</b>
+                                    </a>
+                                </td>
+                                <td>
+                                    {{ include('admin/category/_delete_form.html.twig') }}
+                                </td>
+                            </tr>
+
+                        {% else %}
+                            <tr>
+                                <td colspan="10">no records found</td>
+                            </tr>
+
+                        {% endfor %}
+                        
+                        </tbody>
+
+                    </table>
+
+
+
+               </div>
+            </div>
+        </div><!--/.content-->
+    </div><!--/.span9-->
+    </div>
+    </div>
+    <!--/.container-->
+    </div>
+    <!--/.wrapper-->
+{% endblock %}

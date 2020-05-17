@@ -1,0 +1,31 @@
+{% extends 'adminbase.html.twig' %}
+
+{% block title %}New Setting{% endblock %}
+
+{% block body %}
+    <div class="span9">
+        <div class="content">
+
+            <div class="module">
+                <div class="module-head">
+
+                    <h1>Create new Setting</h1>
+                    <br>
+                    <h6>
+                        <small><a href="{{ path('admin_house_new') }}" class="btn btn-info"><i class="icon-arrow-down"></i>CREATE HIRE</a> </small>
+                    </h6>
+                </div>
+                <div class="module-body">
+
+                    {{ include('admin/setting/_form.html.twig') }}
+
+                </div>
+            </div>
+        </div><!--/.content-->
+    </div><!--/.span9-->
+    </div>
+    </div>
+    <!--/.container-->
+    </div>
+    <!--/.wrapper-->
+{% endblock %}

@@ -1,0 +1,85 @@
+<div class="wrapper">
+	<div class="container">
+		<div class="row">
+			<div class="span3">
+				<div class="sidebar">
+
+					<ul class="widget widget-menu unstyled">
+						<li class="dropdown">
+							<a href="#" class="dropdown-toggle" data-toggle="dropdown">
+
+								<img src="{{ asset('uploads/images/' ~ app.user.image) }}" class="img-circle elevation-2" />
+
+							</a>
+						</li>
+						<li>
+							<a class="collapsed" data-toggle="collapse" href="#togglePages">
+								<i class="menu-icon icon-signout"></i>
+								<i class="icon-chevron-down pull-right"></i><i
+										class="icon-chevron-up pull-right"></i>
+                                {{app.user.name}} {{app.user.surname}}
+							</a>
+							<ul id="togglePages" class="collapse unstyled">
+								<li><a href="/admin/user/{{app.user.id}}">My Profile</a></li>
+								<li><a href="/admin/user/{{app.user.id}}/edit">Edit Profile</a></li>
+								<li><a href="{{ path('app_logout') }}">Logout</a></li>
+
+							</ul>
+						</li>
+						<li>
+							<a href="/admin/category">
+								<i class="menu-icon icon-table"></i>
+								Categories
+							</a>
+						</li>
+
+						<li><a class="collapsed" data-toggle="collapse" href="#togglePage">
+								<i class="menu-icon icon-home"></i>
+									<i class="icon-chevron-down pull-right"></i>
+									<i class="icon-chevron-up pull-right"></i>
+									Announcements</a>
+							<ul id="togglePage" class="collapse unstyled">
+								<li><a href="/admin/house/New">New</a></li>
+								<li><a href="/admin/house/Allow">Allowed</a></li>
+								<li><a href="/admin/house/Disallow">Disallowed</a></li>
+							</ul>
+						</li>
+
+						<li>
+							<a href="/admin/user">
+								<i class="menu-icon icon-table"></i>
+								Users
+							</a>
+						</li>
+						<li>
+							<a href="/admin/messages">
+								<i class="menu-icon icon-paste"></i>
+								Messages <b class="label green pull-right">5</b>
+							</a>
+						</li>
+
+
+						<li>
+							<a href="/admin/comment">
+								<i class="menu-icon icon-tasks"></i>
+								Comments
+
+							</a>
+						</li>
+
+						<li>
+							<a href="/admin/setting">
+								<i class="menu-icon icon-cog"></i>
+
+								Settings
+							</a>
+						</li>
+
+					</ul>
+					<ul class="widget widget-menu unstyled">
+					</ul>
+
+				</div>
+				<!--/.sidebar-->
+			</div>
+			<!--/.span3-->

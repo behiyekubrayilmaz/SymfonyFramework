@@ -1,0 +1,31 @@
+{% extends 'adminbase.html.twig' %}
+
+{% block title %}user index{% endblock %}
+
+{% block body %}
+
+    <div class="span9">
+        <div class="content">
+
+            <div class="module">
+                <div class="module-head">
+
+                    <h2>
+                        User Edit
+                    </h2>
+                </div>
+                <div class="module-body">
+
+                    {{ include('admin/user/_form.html.twig', {'button_label': 'Update'}) }}
+
+                </div>
+            </div>
+        </div><!--/.content-->
+    </div><!--/.span9-->
+    </div>
+    </div>
+    <!--/.container-->
+    </div>
+    <!--/.wrapper-->
+{% endblock %}
+

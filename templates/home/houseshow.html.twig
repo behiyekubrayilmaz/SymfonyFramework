@@ -1,0 +1,202 @@
+{% extends 'homebase.html.twig' %}
+
+{% block title %}House index{% endblock %}
+
+{% block body %}
+    <section id="subintro">
+        <div class="jumbotron subhead" id="overview">
+            <div class="container">
+                <div class="row">
+                    <div class="span8">
+                        <h3><i class="m-icon-big-swapright m-icon-white"></i> {{ house.title }}</h3>
+                        <p>{{house.keywords}}</p>
+                    </div>
+                    <div class="span4">
+                        <div class="input-append">
+                            <form class="form-search">
+                                <input type="text" class="input-medium search-query">
+                                <button type="submit" class="btn btn-inverse">Search</button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <section id="maincontent">
+        <div class="container">
+            <div class="row">
+                <div class="span6">
+                    <div id="myCarousel" class="carousel slide testimonials">
+                        <div class="carousel-inner">
+                            <div class="item active">
+                                <div class="testimonial">
+                                    <div data-thumb="{{ asset('uploads/images/' ~ house.image ) }}" style="height: 360px" >
+                                        <img src="{{ asset('uploads/images/' ~ house.image ) }}" style="height: 360px; width: 750px" alt=""/>
+                                        <blockquote>
+                                            <p>
+                                            <h2>{{house.title}}</h2>
+                                            </p>
+                                        </blockquote>
+                                    </div>
+
+                                </div>
+                            </div>
+                            {% for rs in images %}
+                                <div class="item">
+                                    <div class="testimonial">
+                                        <div data-thumb="{{ asset('uploads/images/' ~ house.image ) }}" style="height: 360px" >
+                                            <img class="zoom" data-pretty="prettyPhoto" src="{{ asset('uploads/images/' ~ rs.image ) }}" style="height: 360px; width: 750px" alt=""/>
+                                            </a>
+                                            <blockquote>
+                                                <p>
+                                                <h2>{{rs.title}}</h2>
+                                                </p>
+                                            </blockquote>
+                                        </div>
+
+
+                                    </div>
+                                </div>
+                            {% endfor %}
+                        </div>
+                        <a class="left carousel-control" href="#myCarousel" data-slide="prev">‹</a>
+                        <a class="right carousel-control" href="#myCarousel" data-slide="next">›</a>
+                    </div>
+                </div>
+                <div class="span2"></div>
+
+                <div class="span4">
+                    <h2>{{ house.title }}</h2>
+                    <div class="row">
+
+                        <div >
+                            <table class="table">
+                                <tbody>
+                                <tr>
+                                    <th>Category       :</th>
+                                    <td>{{ house.category }}</td>
+                                </tr>
+                                <tr>
+                                    <th>Email       :</th>
+                                    <td>{{ house.email }}</td>
+                                </tr>
+
+                                <tr>
+                                    <th>Description :</th>
+                                    <td>{{ house.description }}</td>
+                                </tr>
+
+                                <tr>
+                                    <th>Price (TL)   :</th>
+                                    <td>{{ house.price }} TL</td>
+                                </tr>
+                                <tr>
+                                    <th>Area m2      :</th>
+                                    <td>{{ house.area }} m2</td>
+                                </tr>
+                                <tr>
+                                    <th>Numberroom   :</th>
+                                    <td>{{ house.numberroom }}+1</td>
+                                </tr>
+                                <tr>
+                                    <th>Phone        :</th>
+                                    <td>{{ house.phone }}</td>
+                                </tr>
+                                <tr>
+                                    <th>Address      :</th>
+                                    <td>{{ house.address }}</td>
+                                </tr>
+                                <tr>
+                                    <th> City         :</th>
+                                    <td>{{ house.city }}</td>
+                                </tr>
+
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+            <!-- divider -->
+            <div class="row">
+                <div class="span12">
+                    <div class="divider"></div>
+                </div>
+            </div>
+            <!-- end divider -->
+
+            <div class="row">
+                <div class="span12">
+                    <div class="tabbable"> <!-- Only required for left/right tabs -->
+                        <ul class="nav nav-tabs">
+                            <li class="active"><a href="#tab1" data-toggle="tab">Announcement Detail</a></li>
+                            <li><a href="#tab2" data-toggle="tab">Location</a></li>
+                            <li><a href="#tab3" data-toggle="tab">Comments</a></li>
+                        </ul>
+                        <div class="tab-content">
+                            <div class="tab-pane active" id="tab1">
+                                <p>{{ house.detail | raw}}</p>
+                            </div>
+                            <div class="tab-pane" id="tab2">
+                                <p>{{ house.location}}</p>
+                            </div>
+                            <div class="tab-pane" id="tab3">
+                                {% for rs in comments%}
+                                    <ul class="media-list">
+                                        <li class="media">
+
+                                            <a class="pull-left" href="#">
+                                                <img class="media-object" src="{{asset('assets')}}/img/small-avatar.png" alt="">
+                                            </a>
+                                            <div class="media-body">
+                                                <h5 class="media-heading">{{ rs.subject }}</h5>
+                                                <span>Post :{{ rs.createdAt }}</span>
+                                                <p>{{ rs.comment }}</p>
+
+
+                                            </div>
+                                        </li>
+
+                                    </ul>
+                                {% endfor %}
+
+
+                                {% if app.user %}
+                                    <h3><b>Write your comment </b></h3>
+                                    {{ include ('messages.html.twig') }}
+
+                                    <form name="comment" action="{{ path('user_new_comment', {'id': house.id}) }}" method="post" role="form" class="contactForm">
+                                        <div class="row">
+                                            <div class="span7 form-group">
+                                                <input type="text" class="input-block-level" id="comment_subject" name="comment[subject]" placeholder="Subject" data-rule="minlen:4" data-msg="Please enter at least 8 chars of subject" />
+                                                <div class="validation"></div>
+                                            </div>
+
+                                            <div class="span7 form-group">
+                                                <textarea class="input-block-level" id="comment_comment" name="comment[comment]" rows="5" data-rule="required" data-msg="Please write something for us" placeholder="Comment"></textarea>
+                                                <div class="validation"></div>
+                                                <div style="text-align: center;">
+                                                    <input type="hidden" name="token" value="{{ csrf_token('comment') }}" />
+                                                    <button class="btn btn-medium btn-success" type="submit">Send Comment </button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </form>
+                                {% else %}
+                                    <li>
+                                        <a href="/loginuser"><i class="icon-user"></i>If you want to a comment please login</a>
+                                    </li>
+                                {% endif %}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+{% endblock %}

@@ -1,0 +1,32 @@
+{% extends 'adminbase.html.twig' %}
+
+{% block title %}Edit House{% endblock %}
+
+{% block body %}
+    <div class="span9">
+        <div class="content">
+
+            <div class="module">
+                <div class="module-head">
+                    <h3>
+                        Edit Comment
+                    </h3>
+                    <br>
+                </div>
+                <div class="module-body">
+
+
+                    {{ include('admin/comment/_form.html.twig', {'button_label': 'Update'}) }}
+
+
+                </div>
+            </div>
+        </div><!--/.content-->
+    </div><!--/.span9-->
+    </div>
+    </div>
+    <!--/.container-->
+    </div>
+    <!--/.wrapper-->
+{% endblock %}
+

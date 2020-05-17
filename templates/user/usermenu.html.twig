@@ -1,0 +1,24 @@
+<div class="container">
+
+    <!-- Docs nav
+    ================================================== -->
+    <div class="row">
+        <div class="span3 bs-docs-sidebar">
+
+            <ul class="nav nav-list bs-docs-sidenav">
+                <li>
+						<a href="#" class="dropdown-toggle" data-toggle="dropdown">
+						
+							<img src="{{ asset('uploads/images/' ~ app.user.image) }}"style="max-width: 30%" class=" img-circle elevation-2" />
+							
+							<b> &nbsp {{app.user.name}} {{app.user.surname}}</b>
+						</a>
+						
+				</li>
+                <li><a href="/user"><i class="icon-chevron-right"></i> My Profile</a></li>
+                <li><a href="/user/house"><i class="icon-chevron-right"></i> My Announcements</a></li>
+                <li><a href="/user/comments"><i class="icon-chevron-right"></i> My Comments</a></li>
+                <li><a href="{{ path('app_logout') }}">Logout</a></li>
+            </ul>
+        </div>
+        <div class="span9">
