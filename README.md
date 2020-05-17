@@ -1,1 +1,1 @@
-"Bu proje Php Symfony Framework kullançlarak geliütirilmiü bir ev kiralama sitedir " 
+"Bu proje Php Symfony Framework kullanilarak gelistirilmis bir ev kiralama sitedir " 
